@@ -1,4 +1,3 @@
-PRAGMA foreign_keys = on;
 --------------------Stykke----------------------------
 INSERT INTO SesongType (SesongTypeID, Navn)
 VALUES
