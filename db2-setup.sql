@@ -1,3 +1,4 @@
+PRAGMA foreign_keys = on;
 --------------------Stykke----------------------------
 -- SesongType Table
 CREATE TABLE SesongType (
