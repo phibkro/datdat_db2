@@ -149,10 +149,10 @@ VALUES
 INSERT INTO Sal (SalID, Navn)
 VALUES 
 (1, 'Hovedscenen'),
-(2, 'Gamle scene'),
+(2, 'Gamle scene')/* ,
 (3, 'Studioscenen'),
 (4, 'Teaterkjelleren'),
-(5, 'Teaterkafeen');
+(5, 'Teaterkafeen') */;
 
 -- Forestilling Table
 INSERT INTO Forestilling (ForestillingsID, ForestillingsDatoTid, SalID, StykkeID)
@@ -219,7 +219,7 @@ VALUES
 (5, 'Olav Tryggvasons gate 5', 'Knut Nordmann', 12345687);
 
 --Billettkjop Table
-INSERT INTO Bilettkjop (KundeID, BillettID, DatoTid)
+INSERT INTO Billettkjøp (KundeID, BillettID, DatoTid)
 VALUES
 (1,1, '2024-01-01 12:00:00'),
 (2,2, '2024-01-01 12:00:00'),
@@ -242,10 +242,10 @@ INSERT INTO Posisjon (PosisjonID, PosisjonTekst)
 VALUES
 (1, 'Skuespiller'),
 (2, 'Regi'),
-(3, 'Scenograif og kostymer'),
+(3, 'Scenografi og kostymer'),
 (4, 'Musikalsk ansvarlig'),
 (5, 'Lysdesign'),
-(6, 'Dramturg');
+(6, 'Dramaturg');
 
 -- Ansatt Table
 INSERT INTO Ansatt (AnsattID, AnsattStatusTypeID, Navn, Epost)

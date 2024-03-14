@@ -119,7 +119,7 @@ CREATE TABLE Kunde (
 );
 
 --Billettkjop Table
-CREATE TABLE Bilettkjop (
+CREATE TABLE Billettkjøp (
     KundeID INT,
     BillettID INT,
     DatoTid DATETIME,
