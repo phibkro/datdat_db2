@@ -84,7 +84,6 @@ CREATE TABLE Stol (
     OmrådeNavn VARCHAR(255),
     StolNo INT,
     RadNo INT,
-    StolID INT,
     FOREIGN KEY (SalID, OmrådeNavn) REFERENCES Område(SalID, OmrådeNavn),
     PRIMARY KEY (SalID, OmrådeNavn, StolNo, RadNo)
 );
@@ -104,10 +103,13 @@ CREATE TABLE Billett (
     BillettID INT PRIMARY KEY,
     BillettTypeID INT,
     ForestillingsID DATETIME,
-    StolID INT,
+    SalID INT, 
+    OmrådeNavn VARCHAR(255), 
+    StolNo INT, 
+    RadNo INT,
     FOREIGN KEY (BillettTypeID) REFERENCES BillettType(BillettTypeID),
     FOREIGN KEY (ForestillingsID) REFERENCES Forestilling(ForestillingsID),
-    FOREIGN KEY (StolID) REFERENCES Stol(StolID)
+    FOREIGN KEY (SalID, OmrådeNavn, StolNo, RadNo) REFERENCES Stol(SalID, OmrådeNavn, StolNo, RadNo)
 );
 
 --Kunde Table
