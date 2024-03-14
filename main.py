@@ -1,34 +1,29 @@
 import sys
 import sqlite3
 
-# Requires "db.sql" 
-if __name__ == "__main__":
-  if len(sys.argv) != 2:
-    raise Exception(f"{__file__} requires 1 argument")
-  
-  filepath = sys.argv[1].strip()
-
-  try:
-    f = open(sys.argv)
-  finally:
-    f.close()
-
-connection = sqlite3.connect("db2.db")
-cursor = connection.cursor()
-
-def executeSQLFromFile(filename):
+def executeSQLFromFile(filename, cursor):
   try:
     f = open(filename, "r")
     sqlFile = f.read()
+    sqlCommands = sqlFile.split(";")
+    for command in sqlCommands:
+      try:
+        cursor.execute(command)
+        print(f"{command}\nSuccessfully executed")
+      except sqlite3.OperationalError as msg:
+        print(f"Command skipped: {msg}")
   except OSError:
     print("Failed to read file")
   finally:
     f.close()
 
-  sqlCommands = sqlFile.split(";")
+if __name__ == "__main__":
+  if len(sys.argv) != 2:
+    raise Exception(f"{__file__} requires 1 argument")
+  
+  filepath = sys.argv[1].strip()
+  dbPath = "db2.db"
 
-  for command in sqlCommands:
-    try:
-      cursor.execute(command)
-    except sqlite3.OperationalError as msg:
-      print("Command skipped: ", msg)
+  connection = sqlite3.connect(dbPath)
+  cursor = connection.cursor()
+  executeSQLFromFile(filepath, cursor)

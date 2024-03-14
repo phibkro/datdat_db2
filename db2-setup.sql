@@ -1,18 +1,18 @@
 --------------------Stykke----------------------------
 -- SesongType Table
-CREATE TABLE IF NOT EXISTS SesongType (
+CREATE TABLE SesongType (
     SesongTypeID INT PRIMARY KEY,
     Navn VARCHAR(255)
 );
 
 -- Stykke Table
-CREATE TABLE IF NOT EXISTS Stykke (
+CREATE TABLE Stykke (
     StykkeID INT PRIMARY KEY,
     Navn VARCHAR(255)
 );
 
 -- SesongStykke Table
-CREATE TABLE IF NOT EXISTS SesongStykke (
+CREATE TABLE SesongStykke (
     SesongStykkeID INT PRIMARY KEY,
     StykkeID INT,
     SesongTypeID INT,
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS SesongStykke (
 
 -------------Akt og Rolle----------------
 -- Akt Table
-CREATE TABLE IF NOT EXISTS Akt (
+CREATE TABLE Akt (
     AktNr INT,
     StykkeID INT,
     AktID INT,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS Akt (
 );
 
 -- Rolle Table
-CREATE TABLE IF NOT EXISTS Rolle (
+CREATE TABLE Rolle (
     RolleID INT PRIMARY KEY,
     RolleNavn VARCHAR(255),
     StykkeID INT,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Rolle (
 );
 
 -- AktRolle Table
-CREATE TABLE IF NOT EXISTS AktRolle (
+CREATE TABLE AktRolle (
     AktID INT,
     RolleNavn VARCHAR(255),
     AnsattID INT,
@@ -55,13 +55,13 @@ CREATE TABLE IF NOT EXISTS AktRolle (
 
 ----------------------Forestilling-------------------------
 -- Sal Table
-CREATE TABLE IF NOT EXISTS Sal (
+CREATE TABLE Sal (
     SalID INT PRIMARY KEY,
     Navn VARCHAR(255)
 );
 
 -- Forestilling Table
-CREATE TABLE IF NOT EXISTS Forestilling (
+CREATE TABLE Forestilling (
     ForestillingsID INT PRIMARY KEY,
     ForestillingsDatoTid DATETIME,
     SalID INT,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS Forestilling (
 );
 
 -- Område Table
-CREATE TABLE IF NOT EXISTS Område (
+CREATE TABLE Område (
     SalID INT,
     OmrådeNavn VARCHAR(255),
     FOREIGN KEY (SalID) REFERENCES Sal(SalID),
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS Område (
 );
 
 -- Stol Table
-CREATE TABLE IF NOT EXISTS Stol (
+CREATE TABLE Stol (
     OmrådeNavn VARCHAR(255),
     StolNo INT,
     RadNo INT,
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS Stol (
 
 -------------------------Bilett-------------------------
 -- BillettType Table
-CREATE TABLE IF NOT EXISTS BillettType (
+CREATE TABLE BillettType (
     BillettTypeID INT PRIMARY KEY,
     BillettType VARCHAR(255),
     StykkeID INT,
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS BillettType (
 );
 
 -- Billett Table
-CREATE TABLE IF NOT EXISTS Billett (
+CREATE TABLE Billett (
     BillettID INT PRIMARY KEY,
     BillettTypeID INT,
     ForestillingsID DATETIME,
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS Billett (
 );
 
 --Kunde Table
-CREATE TABLE IF NOT EXISTS Kunde (
+CREATE TABLE Kunde (
     KundeID INT PRIMARY KEY,
     Adresse VARCHAR(255),
     Navn VARCHAR(255),
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS Kunde (
 );
 
 --Billettkjop Table
-CREATE TABLE IF NOT EXISTS Bilettkjop (
+CREATE TABLE Bilettkjop (
     KundeID INT,
     BillettID INT,
     DatoTid DATETIME,
@@ -129,19 +129,19 @@ CREATE TABLE IF NOT EXISTS Bilettkjop (
 -------------------Ansatt---------------------
 
 -- AnsattStatusType Table
-CREATE TABLE IF NOT EXISTS AnsattStatusType (
+CREATE TABLE AnsattStatusType (
     AnsattStatusTypeID INT PRIMARY KEY,
     StatusType VARCHAR(255)
 );
 
 -- Oppgave Table
-CREATE TABLE IF NOT EXISTS Posisjon (
+CREATE TABLE Posisjon (
     PosisjonID INT PRIMARY KEY,
     PosisjonTekst VARCHAR(255)
 );
 
 -- Ansatt Table
-CREATE TABLE IF NOT EXISTS Ansatt (
+CREATE TABLE Ansatt (
     AnsattID INT PRIMARY KEY,
     AnsattStatusTypeID INT,
     Navn VARCHAR(255),
@@ -149,13 +149,13 @@ CREATE TABLE IF NOT EXISTS Ansatt (
     FOREIGN KEY (AnsattStatusTypeID) REFERENCES AnsattStatusType(AnsattStatusTypeID)
 );
 
-CREATE TABLE IF NOT EXISTS Oppgave (
+CREATE TABLE Oppgave (
     OppgaveID INT PRIMARY KEY,
     OppgaveTekst VARCHAR(255)
 );
 
 -- AnsattOppgave Table
-CREATE TABLE IF NOT EXISTS AnsattOppgave (
+CREATE TABLE AnsattOppgave (
     ForestillingsID DATETIME,
     AnsattID INT,
     OppgaveID INT,
