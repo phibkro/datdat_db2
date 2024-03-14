@@ -5,6 +5,8 @@ if __name__ == "__main__":
   dbPath = "db2.db"
 
   connection = sqlite3.connect(dbPath)
+  
+  # Disable auto-commit
   connection.isolation_level = None
   cursor = connection.cursor()
 
