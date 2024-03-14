@@ -80,12 +80,13 @@ CREATE TABLE Område (
 
 -- Stol Table
 CREATE TABLE Stol (
+    SalID INT,
     OmrådeNavn VARCHAR(255),
     StolNo INT,
     RadNo INT,
     StolID INT,
-    FOREIGN KEY (OmrådeNavn) REFERENCES Område(OmrådeNavn),
-    PRIMARY KEY (OmrådeNavn, StolNo, RadNo)
+    FOREIGN KEY (SalID, OmrådeNavn) REFERENCES Område(SalID, OmrådeNavn),
+    PRIMARY KEY (SalID, OmrådeNavn, StolNo, RadNo)
 );
 
 -------------------------Bilett-------------------------
