@@ -12,3 +12,5 @@ if __name__ == "__main__":
 
   executeSQLFile.executeSQLFromFile("db2-setup.sql", cursor)
   executeSQLFile.executeSQLFromFile("db2-seed.sql", cursor)
+
+  connection.close()
