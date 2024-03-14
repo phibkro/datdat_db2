@@ -15,8 +15,8 @@ def executeSQLFromFile(filename, cursor):
     for command in sqlCommands:
       try:
         cursor.execute(command)
-        print(f"{command}\nSuccessfully executed")
       except sqlite3.OperationalError as msg:
+        print(command)
         print(f"Command skipped: {msg}")
 
     # commit to end transaction and write to file
