@@ -102,7 +102,7 @@ CREATE TABLE BillettType (
 CREATE TABLE Billett (
     BillettID INT PRIMARY KEY,
     BillettTypeID INT,
-    ForestillingsID DATETIME,
+    ForestillingsID INT NOT NULL,
     SalID INT, 
     OmrådeNavn VARCHAR(255), 
     StolNo INT, 
