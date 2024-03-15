@@ -137,8 +137,8 @@ CREATE TABLE AnsattStatusType (
     StatusType VARCHAR(255)
 );
 
--- Oppgave Table
-CREATE TABLE Posisjon (
+-- Posisjon Table
+CREATE TABLE AnsattPosisjon (
     PosisjonID INT PRIMARY KEY,
     PosisjonTekst VARCHAR(255)
 );
@@ -147,9 +147,11 @@ CREATE TABLE Posisjon (
 CREATE TABLE Ansatt (
     AnsattID INT PRIMARY KEY,
     AnsattStatusTypeID INT,
+    AnsattPosisjonID INT,
     Navn VARCHAR(255),
     Epost VARCHAR(255),
-    FOREIGN KEY (AnsattStatusTypeID) REFERENCES AnsattStatusType(AnsattStatusTypeID)
+    FOREIGN KEY (AnsattStatusTypeID) REFERENCES AnsattStatusType(AnsattStatusTypeID),
+    FOREIGN KEY (AnsattPosisjonID) REFERENCES AnsattPosisjon(PosisjonID)
 );
 
 CREATE TABLE Oppgave (
