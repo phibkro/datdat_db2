@@ -62,12 +62,10 @@ CREATE TABLE Sal (
 
 -- Forestilling Table
 CREATE TABLE Forestilling (
-    ForestillingsID INT PRIMARY KEY,
     ForestillingsDatoTid DATETIME,
     SalID INT NOT NULL,
-    StykkeID INT NOT NULL,
     FOREIGN KEY (SalID) REFERENCES Sal(SalID),
-    FOREIGN KEY (StykkeID) REFERENCES Stykke(StykkeID)
+    PRIMARY KEY (ForestillingsDatoTid, SalID)
 );
 
 -- Område Table
