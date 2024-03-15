@@ -237,8 +237,8 @@ VALUES
 (3, 'Innleid'),
 (4, 'Frivillig');
 
--- Oppgave Table
-INSERT INTO Posisjon (PosisjonID, PosisjonTekst)
+-- Posisjon Table
+INSERT INTO AnsattPosisjon (PosisjonID, PosisjonTekst)
 VALUES
 (1, 'Skuespiller'),
 (2, 'Regi'),
@@ -248,40 +248,40 @@ VALUES
 (6, 'Dramaturg');
 
 -- Ansatt Table
-INSERT INTO Ansatt (AnsattID, AnsattStatusTypeID, Navn, Epost)
+INSERT INTO Ansatt (AnsattID, AnsattStatusTypeID, AnsattPosisjonID, Navn, Epost)
 VALUES
 --Kongsemene - Skuespillere
-(1, 1, 'Arturo Scotti', 'arturo.scotti@email.com'),
-(2, 1, 'Ingunn Beate Øyen', 'ingunn.beate.oyen@email.com'),
-(3, 1, 'Hans Petter Nilsen', 'hans.petter.nilsen@email.com'),
-(4, 1, 'Madeleine Brandtzæg Nilsen', 'madeleine.brandtzaeg.nilsen@email.com'),
-(5, 1, 'Synnøve Fossum Eriksen', 'synnove.fossum.eriksen@email.com'),
-(6, 1, 'Emma Caroline Deichmann', 'emma.caroline.deichmann@email.com'),
-(7, 1, 'Thomas Jensen Takyi', 'thomas.jensen.takyi@email.com'),
-(8, 1, 'Per Bogstad Gulliksen', 'per.bogstad.gulliksen@email.com'),
-(9, 1, 'Isak Holmen Sørensen', 'isak.holmen.sorensen@email.com'),
-(10, 1, 'Fabian Heidelberg Lunde', 'fabian.heidelberg.lunde@email.com'),
-(11, 1, 'Emil Olafsson', 'emil.olafsson@email.com'),
-(12, 1, 'Snorre Ryen Tøndel', 'snorre.ryen.tondel@email.com'),
+(1, 1, 1, 'Arturo Scotti', 'arturo.scotti@email.com'),
+(2, 1, 1, 'Ingunn Beate Øyen', 'ingunn.beate.oyen@email.com'),
+(3, 1, 1, 'Hans Petter Nilsen', 'hans.petter.nilsen@email.com'),
+(4, 1, 1, 'Madeleine Brandtzæg Nilsen', 'madeleine.brandtzaeg.nilsen@email.com'),
+(5, 1, 1, 'Synnøve Fossum Eriksen', 'synnove.fossum.eriksen@email.com'),
+(6, 1, 1, 'Emma Caroline Deichmann', 'emma.caroline.deichmann@email.com'),
+(7, 1, 1, 'Thomas Jensen Takyi', 'thomas.jensen.takyi@email.com'),
+(8, 1, 1, 'Per Bogstad Gulliksen', 'per.bogstad.gulliksen@email.com'),
+(9, 1, 1, 'Isak Holmen Sørensen', 'isak.holmen.sorensen@email.com'),
+(10, 1, 1, 'Fabian Heidelberg Lunde', 'fabian.heidelberg.lunde@email.com'),
+(11, 1, 1, 'Emil Olafsson', 'emil.olafsson@email.com'),
+(12, 1, 1, 'Snorre Ryen Tøndel', 'snorre.ryen.tondel@email.com'),
 --Størst av alt er kjærligheten - Skuespillere
-(13, 1, 'Sunniva Du Mond Nordal', 'sunniva.du.mond.nordal@email.com'),
-(14, 1, 'Jo Saberniak', 'jo.saberniak@email.com'),
-(15, 1, 'Marte M. Steinholt', 'marte.m.steinholt@email.com'),
-(16, 1, 'Tor Ivar Hagen', 'tor.ivar.hagen@email.com'),
-(17, 1, 'Trond-Ove Skrødal', 'trond-ove.skrodal@email.com'),
-(18, 1, 'Natalie Grøndahl Tangen', 'natalie.grondahl.tangen@email.com'),
-(19, 1, 'Åsmund Flaten', 'asmund.flaten@email.com'),
+(13, 1, 1, 'Sunniva Du Mond Nordal', 'sunniva.du.mond.nordal@email.com'),
+(14, 1, 1, 'Jo Saberniak', 'jo.saberniak@email.com'),
+(15, 1, 1, 'Marte M. Steinholt', 'marte.m.steinholt@email.com'),
+(16, 1, 1, 'Tor Ivar Hagen', 'tor.ivar.hagen@email.com'),
+(17, 1, 1, 'Trond-Ove Skrødal', 'trond-ove.skrodal@email.com'),
+(18, 1, 1, 'Natalie Grøndahl Tangen', 'natalie.grondahl.tangen@email.com'),
+(19, 1, 1, 'Åsmund Flaten', 'asmund.flaten@email.com'),
 --Kongsemnene - Regi
-(20, 2, 'Yury Butusov', 'yury.butusov@email.com'),
-(21, 3, 'Aleksandr Shishkin-Hokusai', 'aleksandr.shishkinhokusai@email.com'),
-(22, 5, 'Eivind Myren', 'eivind.myren@email.com'),
-(23, 6, 'Mina Rype Stokke', 'mina.stokke@email.com'),
+(20, 1, 2, 'Yury Butusov', 'yury.butusov@email.com'),
+(21, 1, 3, 'Aleksandr Shishkin-Hokusai', 'aleksandr.shishkinhokusai@email.com'),
+(22, 1, 5, 'Eivind Myren', 'eivind.myren@email.com'),
+(23, 1, 6, 'Mina Rype Stokke', 'mina.stokke@email.com'),
 --Størst av alt er kjærligheten - Regi
-(24, 2, 'Jonas Corell Petersen', 'jonascorell.petersen@email.com'),
-(25, 3, 'David Gehrt', 'david.gehrt@email.com'),
-(26, 4, 'Gaute Tønder', 'gaute.tonder@email.com'),
-(27, 5, 'Magnus Mikaelsen', 'magnus.mikaelsen@email.com'),
-(28, 6, 'Kristoffer Spender', 'kristoffer.spender@email.com');
+(24, 1, 2, 'Jonas Corell Petersen', 'jonascorell.petersen@email.com'),
+(25, 1, 3, 'David Gehrt', 'david.gehrt@email.com'),
+(26, 1, 4, 'Gaute Tønder', 'gaute.tonder@email.com'),
+(27, 1, 5, 'Magnus Mikaelsen', 'magnus.mikaelsen@email.com'),
+(28, 1, 6, 'Kristoffer Spender', 'kristoffer.spender@email.com');
 
 -- AnsattOppgave Table
 -----------------------------------------------------------------------------------------------------
@@ -763,27 +763,29 @@ VALUES
 (1, "Parkett", 503, 18), 
 (1, "Parkett", 504, 18), 
 --Hovedscene Område 'Galleri Nedre'
-(1, "Galleri", 505, null), 
-(1, "Galleri", 506, null), 
-(1, "Galleri", 507, null), 
-(1, "Galleri", 508, null), 
-(1, "Galleri", 509, null), 
-(1, "Galleri", 510, null), 
-(1, "Galleri", 511, null), 
-(1, "Galleri", 512, null), 
-(1, "Galleri", 513, null), 
-(1, "Galleri", 514, null), 
+(1, "Galleri", 505, 1), 
+(1, "Galleri", 506, 1), 
+(1, "Galleri", 507, 1), 
+(1, "Galleri", 508, 1), 
+(1, "Galleri", 509, 1), 
+--Hovedscene Område 'Galleri Nedre'
+(1, "Galleri", 510, 2), 
+(1, "Galleri", 511, 2), 
+(1, "Galleri", 512, 2), 
+(1, "Galleri", 513, 2), 
+(1, "Galleri", 514, 2), 
 --Hovedscene Område 'Galleri Øvre'
-(1, "Galleri", 515, null), 
-(1, "Galleri", 516, null), 
-(1, "Galleri", 517, null), 
-(1, "Galleri", 518, null), 
-(1, "Galleri", 519, null), 
-(1, "Galleri", 520, null), 
-(1, "Galleri", 521, null), 
-(1, "Galleri", 522, null), 
-(1, "Galleri", 523, null), 
-(1, "Galleri", 524, null),
+(1, "Galleri", 515, 3), 
+(1, "Galleri", 516, 3), 
+(1, "Galleri", 517, 3), 
+(1, "Galleri", 518, 3), 
+(1, "Galleri", 519, 3), 
+--Hovedscene Område 'Galleri Øvre'
+(1, "Galleri", 520, 4), 
+(1, "Galleri", 521, 4), 
+(1, "Galleri", 522, 4), 
+(1, "Galleri", 523, 4), 
+(1, "Galleri", 524, 4),
 --Gamlescene Område 'Galleri' Rad 1
 (2, "Galleri", 1, 1),
 (2, "Galleri", 2, 1),
