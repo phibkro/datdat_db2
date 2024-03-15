@@ -219,7 +219,7 @@ VALUES
 (5, 'Olav Tryggvasons gate 5', 'Knut Nordmann', 12345687);
 
 --Billettkjop Table
-INSERT INTO Billettkjøp (KundeID, BillettID, DatoTid)
+INSERT INTO Billettkjøp (KundeID, BillettID, KjøpsTid)
 VALUES
 (1,1, '2024-01-01 12:00:00'),
 (2,2, '2024-01-01 12:00:00'),

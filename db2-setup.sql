@@ -124,7 +124,7 @@ CREATE TABLE Kunde (
 CREATE TABLE Billettkjøp (
     KundeID INT,
     BillettID INT,
-    DatoTid DATETIME,
+    KjøpsTid DATETIME NOT NULL,
     FOREIGN KEY (KundeID) REFERENCES Kunde(KundeID),
     FOREIGN KEY (BillettID) REFERENCES Billett(BillettID),
     PRIMARY KEY (KundeID, BillettID)
