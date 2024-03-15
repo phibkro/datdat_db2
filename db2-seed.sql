@@ -184,7 +184,7 @@ VALUES
 
 -------------------------Bilett-------------------------
 -- BillettType Table
-INSERT INTO BillettType (BillettTypeID, BillettType, StykkeID, Pris)
+INSERT INTO BillettType (BillettTypeID, Navn, StykkeID, Pris)
 VALUES 
 --Billett Kongsemnene
 (1, 'Ordinær', 1, 450),

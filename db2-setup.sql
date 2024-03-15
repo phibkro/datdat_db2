@@ -92,7 +92,7 @@ CREATE TABLE Stol (
 -- BillettType Table
 CREATE TABLE BillettType (
     BillettTypeID INT PRIMARY KEY,
-    BillettType VARCHAR(255),
+    Navn VARCHAR(255),
     StykkeID INT,
     Pris INT,
     FOREIGN KEY (StykkeID) REFERENCES Stykke(StykkeID)
