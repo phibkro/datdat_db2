@@ -1,9 +1,6 @@
 import sqlite3
 
-def insert_seats_and_buy_tickets(db_Path):
-    # Connect to the SQLite database
-    con = sqlite3.connect(db_Path)
-    cursor = con.cursor()
+def insert_seats_and_buy_tickets(cursor):
 
     #Opprette generisk Kunde ID 2
     cursor.execute("""
@@ -84,8 +81,4 @@ def insert_seats_and_buy_tickets(db_Path):
     insert_seats_into_database_and_purchase(2, 'Balkong', balkong_rows, sold_seats)
     insert_seats_into_database_and_purchase(2, 'Parkett', parkett_rows, sold_seats)
 
-    # Commit the transaction to the database
-    con.commit()
-
-    # Close the database connection
-    con.close()
+   

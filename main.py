@@ -15,9 +15,9 @@ if __name__ == "__main__":
   executeSQLFile.executeSQLFromFile("db2_setup.sql", cursor)
 
   #Kjøpe og sette inn billetter for Hovedscenen
-  insertAndBuySeatsHovedScenen.insert_seats_and_buy_tickets(dbPath)
+  insertAndBuySeatsHovedScenen.insert_seats_and_buy_tickets(cursor)
   #Kjøpe og sette inn billetter for GamleScene
-  insertAndBuySeatsGamleScene.insert_seats_and_buy_tickets(dbPath)
+  insertAndBuySeatsGamleScene.insert_seats_and_buy_tickets(cursor)
 
 
 
