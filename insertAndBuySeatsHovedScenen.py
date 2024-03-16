@@ -64,7 +64,7 @@ def insert_seats_and_buy_tickets(db_Path):
                     cursor.execute("INSERT INTO Billett (BillettTypeNavn, SalID, RadNr, StolNr) VALUES (?, ?, ?, ?)",
                                 (1, sal_id, rad_nr, seat_counter)) 
                     cursor.execute("""
-                                INSERT INTO Billettkjøp (BillettTypeNavn, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 
+                                INSERT INTO Billettkjøp (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 
                                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
                                 (1, sal_id, omrade_navn, rad_nr, seat_counter, 1, '2024-02-03 16:00:00'))
 

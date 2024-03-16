@@ -105,15 +105,15 @@ CREATE TABLE Kunde (
 );
 
 CREATE TABLE BillettKjøp (
-    BillettTypeNavn VARCHAR(255),
+    BillettTypeID INT NOT NULL,
     SalID INT,
     OmrådeNavn VARCHAR(255),
     RadNr INT,
     StolNr INT,
     KundeID INT,
     KjøpsTid DATETIME,
-    PRIMARY KEY (BillettTypeNavn, SalID, OmrådeNavn, RadNr, StolNr),
-    FOREIGN KEY (BillettTypeNavn) REFERENCES BillettType(Navn),
+    PRIMARY KEY (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr),
+    FOREIGN KEY (BillettTypeID) REFERENCES BillettType(ID),
     FOREIGN KEY (SalID, OmrådeNavn, RadNr, StolNr) REFERENCES Stol(SalID, OmrådeNavn, RadNr, StolNr),
     FOREIGN KEY (KundeID) REFERENCES Kunde(ID)
 );

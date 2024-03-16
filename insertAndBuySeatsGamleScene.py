@@ -59,9 +59,9 @@ def insert_seats_and_buy_tickets(db_Path):
                         (2, sal_id, row[0], seat))
                     #insert into BillettKjøp table if it is
                     cursor.execute("""
-                                INSERT INTO Billettkjøp (BillettTypeNavn, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 
+                                INSERT INTO Billettkjøp (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 
                                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
-                                (1, sal_id, omrade_navn, row[0], seat, 2, '2024-02-03 15:30:00'))
+                                (2, sal_id, omrade_navn, row[0], seat, 2, '2024-02-03 15:30:00'))
                                 
 
     # Insert seats for 'Galleri'
