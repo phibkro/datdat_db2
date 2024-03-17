@@ -18,6 +18,7 @@ def insert_seats_and_buy_tickets(cursor):
 
     # Function to parse the document and find sold seats
     def parse_and_identify_sold_seats(file_path):
+        seats = {'Galleri': [], 'Parkett': []}
         sold_seats = {'Galleri': [], 'Parkett': []}  # Initialize empty lists to store sold seats for each area
         current_area = None  # To keep track of the current area being processed
         seat_counter = {'Galleri': 505, 'Parkett': 1}  # Start counters considering 'Galleri' seats numbering
@@ -28,13 +29,18 @@ def insert_seats_and_buy_tickets(cursor):
                 line = line.strip()
                 if line in ['Galleri', 'Parkett']:
                     current_area = line  # Update the current area
-                elif line and current_area:  # Make sure we have started processing an area
-                    for seat in line:
-                        if seat == '1':
-                            # Add the seat number to the sold_seats list for the current area
-                            sold_seats[current_area].append(seat_counter[current_area])
-                        if seat != 'x':  # Increment seat counter for actual seats only
-                            seat_counter[current_area] += 1
+                elif line and current_area:
+                    seats[current_area].append(line)  
+
+        for area in reversed(seats):
+            current_area = area
+            for line in reversed(seats[area]):                
+                for seat in line:
+                    if seat == '1':
+                        # Add the seat number to the sold_seats list for the current area
+                        sold_seats[current_area].append(seat_counter[current_area])
+
+                    seat_counter[current_area] += 1
 
         return sold_seats
 
@@ -58,7 +64,7 @@ def insert_seats_and_buy_tickets(cursor):
                 if seat_counter in sold_seats:
                     
                     # Insert into Billett table
-                    cursor.execute("INSERT INTO Billett (BillettTypeNavn, SalID, OmrådeNavn, RadNr, StolNr) VALUES (?, ?, ?, ?, ?)",
+                    cursor.execute("INSERT INTO Billett (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr) VALUES (?, ?, ?, ?, ?)",
                                 (1, sal_id, omrade_navn, rad_nr, seat_counter)) 
                     cursor.execute("""
                                 INSERT INTO Billettkjøp (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 

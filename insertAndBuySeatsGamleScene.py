@@ -18,6 +18,7 @@ def insert_seats_and_buy_tickets(cursor):
 
     # Function to parse the document and find sold seats
     def parse_and_identify_sold_seats(file_path):
+        seats = {'Galleri': [], 'Balkong': [], 'Parkett': []}
         sold_seats = {'Galleri': [], 'Balkong': [], 'Parkett': []}  # Initialize empty lists to store sold seats for each area
         current_area = None  # To keep track of the current area being processed
         seat_counter = {'Galleri': 1, 'Balkong': 1, 'Parkett': 1}  # Start counters considering 'Galleri' seats numbering
@@ -28,12 +29,17 @@ def insert_seats_and_buy_tickets(cursor):
                 line = line.strip()
                 if line in ['Galleri', 'Balkong', 'Parkett']:
                     current_area = line  # Update the current area
-                    row_number = 1  # Reset row number for each new area
                 elif line and current_area:  # Make sure we have started processing an area
-                    seat_counter = 1 # Start seat numbers at 1 for each new row
-                    row_number += 1  # Increment row number for each new row
+                    seats[current_area].append(line)
+            
+            for area in reversed(seats):
+                current_area = area
+                row_number = 0  # Reset row number for each new area
+                for line in reversed(seats[area]): 
+                    seat_counter = 1 # Start seat numbers at 1 for each new row 
+                    row_number += 1  # Increment row number for each new row              
                     for seat in line:
-                        if seat == '1': # If the seat is sold
+                        if seat == '1':
                             # Add the seat number to the sold_seats list for the current area
                             sold_seats[current_area].append((row_number, seat_counter))
                         seat_counter += 1
@@ -51,7 +57,7 @@ def insert_seats_and_buy_tickets(cursor):
                 if (row[0], seat) in sold_seats[omrade_navn]:
                     #insert into Billett table if it is
                     cursor.execute("""
-                        INSERT INTO Billett (BillettTypeNavn, SalID, OmrådeNavn,RadNr, StolNr)
+                        INSERT INTO Billett (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr)
                         VALUES (?, ?, ?, ?, ?)""",
                         (2, sal_id, omrade_navn, row[0], seat))
                     #insert into BillettKjøp table if it is

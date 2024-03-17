@@ -17,14 +17,15 @@ if __name__ == "__main__":
   executeSQLFile.executeSQLFromFile("db2_setup.sql", cursor)
   #executeSQLFile.executeSQLFromFile("db2_seed.sql", cursor)
 
-  
+
   #------------Oppgave 2------------
   #Kjøpe og sette inn billetter for Hovedscenen
   insertAndBuySeatsHovedScenen.insert_seats_and_buy_tickets(cursor)
   #Kjøpe og sette inn billetter for GamleScene
   insertAndBuySeatsGamleScene.insert_seats_and_buy_tickets(cursor)
 
-  #------------Oppgave 3------------
+  # #------------Oppgave 3------------
+  print("--------------------Oppgave 3--------------------\n")
   buyNineSeats.buy_nine_seats(cursor)
 
   connection.commit()
