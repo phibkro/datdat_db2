@@ -58,8 +58,8 @@ def insert_seats_and_buy_tickets(cursor):
                 if seat_counter in sold_seats:
                     
                     # Insert into Billett table
-                    cursor.execute("INSERT INTO Billett (BillettTypeNavn, SalID, RadNr, StolNr) VALUES (?, ?, ?, ?)",
-                                (1, sal_id, rad_nr, seat_counter)) 
+                    cursor.execute("INSERT INTO Billett (BillettTypeNavn, SalID, OmrådeNavn, RadNr, StolNr) VALUES (?, ?, ?, ?, ?)",
+                                (1, sal_id, omrade_navn, rad_nr, seat_counter)) 
                     cursor.execute("""
                                 INSERT INTO Billettkjøp (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 
                                 VALUES (?, ?, ?, ?, ?, ?, ?)""",

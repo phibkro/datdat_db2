@@ -13,7 +13,7 @@ def insert_seats_and_buy_tickets(cursor):
                     INSERT INTO BillettType
                     (ID, Navn, StykkeID, SalID, ForestillingStartTid, Pris)
                     VALUES
-                    ('2', 'Ordinær', '1', '1', '2024-02-03 18:30:00', '350')
+                    ('2', 'Ordinær', '1', '2', '2024-02-03 18:30:00', '350')
                     """)
 
     # Function to parse the document and find sold seats
@@ -51,9 +51,9 @@ def insert_seats_and_buy_tickets(cursor):
                 if (row[0], seat) in sold_seats[omrade_navn]:
                     #insert into Billett table if it is
                     cursor.execute("""
-                        INSERT INTO Billett (BillettTypeNavn, SalID, RadNr, StolNr)
-                        VALUES (?, ?, ?, ?)""",
-                        (2, sal_id, row[0], seat))
+                        INSERT INTO Billett (BillettTypeNavn, SalID, OmrådeNavn,RadNr, StolNr)
+                        VALUES (?, ?, ?, ?, ?)""",
+                        (2, sal_id, omrade_navn, row[0], seat))
                     #insert into BillettKjøp table if it is
                     cursor.execute("""
                                 INSERT INTO Billettkjøp (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 

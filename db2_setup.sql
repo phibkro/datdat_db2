@@ -89,11 +89,12 @@ CREATE TABLE BillettType (
 CREATE TABLE Billett (
     BillettTypeNavn VARCHAR(255),
     SalID INT,
+    OmrådeNavn VARCHAR(255),
     RadNr INT,
     StolNr INT,
     PRIMARY KEY (BillettTypeNavn, SalID, RadNr, StolNr),
     FOREIGN KEY (BillettTypeNavn) REFERENCES BillettType(Navn),
-    FOREIGN KEY (SalID, RadNr, StolNr) REFERENCES Stol(SalID, RadNr, StolNr)
+    FOREIGN KEY (SalID, OmrådeNavn, RadNr, StolNr) REFERENCES Stol(SalID, OmrådeNavn, RadNr, StolNr)
 );
 
 CREATE TABLE Kunde (
