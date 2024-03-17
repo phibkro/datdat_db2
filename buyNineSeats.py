@@ -61,36 +61,6 @@ def buy_nine_seats(cursor):
                                 """, (2, 2, random_section, random_row[0], seat_index, 3, '2024-02-03 17:30:00'))
                 counter += 1
 
-        # def print_sold_seats_after_buying(file_path):
-        #     with open(file_path, 'r') as file:
-        #         lines = file.readlines()
-        #     # Initialize variables
-        #     section = None
-        #     row_number = 0
-            
-        #     # Process each line in the file
-        #     for line in lines:
-        #         # Check if the line is a section name
-        #         if line.strip() in ['Galleri', 'Balkong', 'Parkett']:
-        #             section = line.strip()
-        #             row_number = 0 # Reset row number for each section
-        #             print(section)  # Ensure section names are printed
-        #         else:
-        #             row_number += 1
-                
-        #         counter = 0
-        #         if section == random_section and row_number == random_row[0]:
-                    
-        #             for seat_index, seat in enumerate(random_row[1], start=1):
-        #                 if seat == '0' and counter < 9:
-        #                     print('1', end='')
-        #                     counter += 1
-        #                 else:
-        #                     print(seat, end='')
-        #         else:
-
-        #             print(line)
-
             def print_sold_seats_after_buying(file_path):
                 with open(file_path, 'r') as file:
                     lines = file.readlines()
