@@ -17,7 +17,7 @@ CREATE TABLE SesongStykke (
     FOREIGN KEY (SesongTypeID) REFERENCES SesongType(ID),
     FOREIGN KEY (StykkeID) REFERENCES Stykke(ID),
     FOREIGN KEY (SalID) REFERENCES Sal(ID)
-    PRIMARY KEY (SesongTypeID, År)
+    PRIMARY KEY (SesongTypeID, År, SalID)
 );
 
 -------------Akt og Rolle----------------

@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
   #------------Oppgave 1------------
   executeSQLFile.executeSQLFromFile("db2_setup.sql", cursor)
-  #executeSQLFile.executeSQLFromFile("db2_seed.sql", cursor)
+  executeSQLFile.executeSQLFromFile("db2-seed.sql", cursor)
 
 
   #------------Oppgave 2------------
