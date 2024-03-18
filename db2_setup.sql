@@ -31,18 +31,18 @@ CREATE TABLE Akt (
 
 CREATE TABLE Rolle (
     ID INT PRIMARY KEY,
-    Navn VARCHAR(255) NOT NULL
+    RolleNavn VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE AktRolle (
     StykkeID INT NOT NULl,
     AktNR INT NOT NULL,
-    RolleNavn VARCHAR(255) NOT NULL,
+    RolleID VARCHAR(255) NOT NULL,
     AnsattID INT NOT NULl,
     FOREIGN KEY (StykkeID, AktNR) REFERENCES Akt(StykkeID, AktNR),
-    FOREIGN KEY (RolleNavn) REFERENCES Rolle(RolleNavn),
+    FOREIGN KEY (RolleID) REFERENCES Rolle(ID),
     FOREIGN KEY (AnsattID) REFERENCES Ansatt(ID)
-    PRIMARY KEY (StykkeID, AktNR, RolleNavn, AnsattID)
+    PRIMARY KEY (StykkeID, AktNR, RolleID, AnsattID)
 );
 
 -------------------------Forestilling section--------------------------

@@ -33,7 +33,7 @@ VALUES
 (2, 1, 'Akt 1 - Størst av alt er kjærligheten');
 
 -- Rolle Table
-INSERT INTO Rolle (ID, Navn)
+INSERT INTO Rolle (ID, RolleNavn)
 VALUES
 --Roller i Kongsemnene
 (1, 'Håkon Håkonsson'),
@@ -61,87 +61,87 @@ VALUES
 (22, 'Åsmund Flaten');
 
 -- AktRolle Table
-INSERT INTO AktRolle (StykkeID, AktNR, RolleNavn, AnsattID)
+INSERT INTO AktRolle (StykkeID, AktNR, RolleID, AnsattID)
 VALUES
 -----Størst av alt er kjærligheten-----
 -----Skuespillerne i Størst av alt er kjærligheten spiller seg selv
-(2,1, 'Sunniva Du Mond Nordal', 13),
-(2,1, 'Jo Saberniak', 14),
-(2,1, 'Marte M. Steinholt', 15),
-(2,1, 'Tor Ivar Hagen', 16),
-(2,1, 'Trond-Ove Skrødal', 17),
-(2,1, 'Natalie Grøndahl Tangen', 18),
-(2,1, 'Åsmund Flaten', 19),
+(2,1, 16, 13),
+(2,1, 17, 14),
+(2,1, 18, 15),
+(2,1, 19, 16),
+(2,1, 20, 17),
+(2,1, 21, 18),
+(2,1, 22, 19),
 -----Kongsemnene-----
 -- For Håkon Håkonsson
-(1,1, "Håkon Håkonsson", 1),
-(1,2, "Håkon Håkonsson", 1),
-(1,3, "Håkon Håkonsson", 1),
-(1,4, "Håkon Håkonsson", 1),
-(1,5, "Håkon Håkonsson", 1),
+(1,1, 1, 1),
+(1,2, 1, 1),
+(1,3, 1, 1),
+(1,4, 1, 1),
+(1,5, 1, 1),
 -- For Dagfinn Bonde
-(1,1, "Dagfinn Bonde", 11),
-(1,2, "Dagfinn Bonde", 11),
-(1,3, "Dagfinn Bonde", 11),
-(1,4, "Dagfinn Bonde", 11),
-(1,5, "Dagfinn Bonde", 11),
+(1,1, 14, 11),
+(1,2, 14, 11),
+(1,3, 14, 11),
+(1,4, 14, 11),
+(1,5, 14, 11),
 
 -- For Jatgeir Skald
-(1,4, "Jatgeir Skald", 11),
+(1,4, 13, 11),
 
 -- For Sigrid
-(1,1, "Sigrid", 6),
-(1,2, "Sigrid", 6),
-(1,5, "Sigrid", 6),
+(1,1, 6, 6),
+(1,2, 6, 6),
+(1,5, 6, 6),
 
 -- For Ingeborg
-(1,4, "Ingeborg", 6),
+(1,4, 7, 6),
 
 -- For Skule Jarl
-(1,1, "Skule Jarl", 3),
-(1,2, "Skule Jarl", 3),
-(1,3, "Skule Jarl", 3),
-(1,4, "Skule Jarl", 3),
-(1,5, "Skule Jarl", 3),
+(1,1, 3, 3),
+(1,2, 3, 3),
+(1,3, 3, 3),
+(1,4, 3, 3),
+(1,5, 3, 3),
 
 -- For Inga fra Varteig
-(1,1, "Inga frå Varteig", 2),
-(1,3, "Inga frå Varteig", 2),
+(1,1, 2, 2),
+(1,3, 2, 2),
 
 -- For Paal Flida
-(1,1, "Paal Flida", 9),
-(1,2, "Paal Flida", 9),
-(1,3, "Paal Flida", 9),
-(1,4, "Paal Flida", 9),
-(1,5, "Paal Flida", 9),
+(1,1, 10, 9),
+(1,2, 10, 9),
+(1,3, 10, 9),
+(1,4, 10, 9),
+(1,5, 10, 9),
 
 -- For Ragnhild
-(1,1, "Ragnhild", 4),
-(1,5, "Ragnhild", 4),
+(1,1, 4, 4),
+(1,5, 4, 4),
 
 -- For Gregorius Jonsson
-(1,1, "Gregorius Jonsson", 8),
-(1,2, "Gregorius Jonsson", 8),
-(1,3, "Gregorius Jonsson", 8),
-(1,4, "Gregorius Jonsson", 8),
-(1,5, "Gregorius Jonsson", 8),
+(1,1, 9, 8),
+(1,2, 9, 8),
+(1,3, 9, 8),
+(1,4, 9, 8),
+(1,5, 9, 8),
 
 -- For Margrete
-(1,1, "Margrete", 5),
-(1,2, "Margrete", 5),
-(1,3, "Margrete", 5),
-(1,4, "Margrete", 5),
-(1,5, "Margrete", 5),
+(1,1, 5, 5),
+(1,2, 5, 5),
+(1,3, 5, 5),
+(1,4, 5, 5),
+(1,5, 5, 5),
 
 -- For Biskop Nikolas
-(1,1, "Biskop Nikolas", 7),
-(1,2, "Biskop Nikolas", 7),
-(1,3, "Biskop Nikolas", 7),
+(1,1, 8, 7),
+(1,2, 8, 7),
+(1,3, 8, 7),
 
 -- For Peter
-(1,3, "Peter", 12),
-(1,4, "Peter", 12),
-(1,5, "Peter", 12);
+(1,3, 15, 12),
+(1,4, 15, 12),
+(1,5, 15, 12);
 
 
 ----------------------Forestilling-------------------------
