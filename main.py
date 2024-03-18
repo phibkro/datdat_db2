@@ -1,8 +1,7 @@
 import sqlite3
-import executeSQLFile
-import insertAndBuySeatsHovedScenen
-import insertAndBuySeatsGamleScene
-import buyNineSeats
+import oppgave1
+import oppgave2
+import oppgave3
 
 if __name__ == "__main__":
   dbPath = "db2.db"
@@ -27,19 +26,19 @@ if __name__ == "__main__":
       cursor.execute(f"DROP TABLE IF EXISTS {table[0]};")
 
   #------------Oppgave 1------------
-  executeSQLFile.executeSQLFromFile("db2_setup.sql", cursor)
-  executeSQLFile.executeSQLFromFile("db2-seed.sql", cursor)
+  oppgave1.executeSQLFromFile("db2_setup.sql", cursor)
+  oppgave1.executeSQLFromFile("db2-seed.sql", cursor)
 
 
   #------------Oppgave 2------------
   #Kjøpe og sette inn billetter for Hovedscenen
-  insertAndBuySeatsHovedScenen.insert_seats_and_buy_tickets(cursor)
+  oppgave2.hovedscene_insert_seats_and_buy_tickets(cursor)
   #Kjøpe og sette inn billetter for GamleScene
-  insertAndBuySeatsGamleScene.insert_seats_and_buy_tickets(cursor)
+  oppgave2.gamle_scene_insert_seats_and_buy_tickets(cursor)
 
   # #------------Oppgave 3------------
   print("--------------------Oppgave 3--------------------\n")
-  buyNineSeats.buy_nine_seats(cursor)
+  oppgave3.buy_nine_seats(cursor)
 
   connection.commit()
 
