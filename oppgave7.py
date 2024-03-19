@@ -13,6 +13,19 @@ def actors_in_the_same_act(name):
     connection_2 = sqlite3.connect(dbPath_2)
     cursor_2 = connection_2.cursor()
 
+    # Disable auto-commit
+    connection_1.isolation_level = None
+    connection_2.isolation_level = None
+
+    # Drop all tables
+    # Query for all table names
+    cursor_1.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor_1.fetchall()
+    # Drop each table
+    for table in tables:
+        cursor_1.execute(f"DROP TABLE IF EXISTS {table[0]};")
+
+
     cursor_1.execute("""CREATE TABLE IF NOT EXISTS TabellNavn (
                         StykkeID INT NOT NULL,
                         AktNR INT,
@@ -47,11 +60,28 @@ def actors_in_the_same_act(name):
         cursor_1.execute("""INSERT INTO TabellNavn (StykkeID, AktNR, RolleID, AnsattID, AnsattID2, AnsattStatusID, AnsattPosisjonID, Navn, Epost, StykkeID2, StykkeNavn)
                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
     
-    connection_1.commit()
+    
 
-#     for row in tabell_navn:
-#         cursor_1.execute("""SELECT TabellNavn.Navn
-#                           FROM TabellNavn
-#                           WHERE TabellNavn.StykkeID = ? AND TabellNavn.AktNR = ?""", (row[0], row[1]))
-# """
-actors_in_the_same_act("Emil Olafsson")
+    results = []
+    for row in tabell_navn:
+        cursor_1.execute("""SELECT TabellNavn.Navn, TabellNavn.StykkeNavn
+                          FROM TabellNavn
+                          WHERE TabellNavn.StykkeID = ? AND TabellNavn.AktNR = ?""", (row[0], row[1]))
+        results.append(cursor_1.fetchall())
+    
+    connection_1.commit()
+    connection_1.close()
+    
+    distinct_pairs = set()
+    for sublist in results:
+        for pair in sublist:
+            if pair[0] == name:
+                continue
+            else:
+                distinct_pairs.add(pair)
+
+    print("Skuespillere som har vært med i samme akt som", name, "er: \n")
+    for name_pair in distinct_pairs:
+        print(f"{name_pair}\n")
+
+actors_in_the_same_act("Arturo Scotti")
