@@ -33,9 +33,9 @@ if __name__ == "__main__":
 
   #------------Oppgave 2------------
   #Kjøpe og sette inn billetter for Hovedscenen
-  Oppgave2_insertAndBuySeatsHovedScenen.hovedscene_insert_seats_and_buy_tickets(cursor)
+  Oppgave2_insertAndBuySeatsHovedScenen.insert_seats_and_buy_tickets(cursor)
   #Kjøpe og sette inn billetter for GamleScene
-  Oppgave2_insertAndBuySeatsGamleScene.gamle_scene_insert_seats_and_buy_tickets(cursor)
+  Oppgave2_insertAndBuySeatsGamleScene.insert_seats_and_buy_tickets(cursor)
 
   # #------------Oppgave 3------------
   print("--------------------Oppgave 3--------------------\n")

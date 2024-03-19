@@ -1,4 +1,4 @@
-import sqlite3
+
 
 def insert_seats_and_buy_tickets(cursor):
 
