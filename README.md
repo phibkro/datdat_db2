@@ -56,9 +56,10 @@ Employee ||--o{ ActRoleActor : performs
 %% Performance section
 Performance {
     int HallID PK,FK
+    int PlaySeasonYear PK,FK
     datetime StartTime PK
 }
-Performance }o--|| Hall : of
+Performance }o--|| PlaySeason : of
 
 Hall {
     int ID PK

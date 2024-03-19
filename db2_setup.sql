@@ -52,10 +52,14 @@ CREATE TABLE Sal (
 );
 
 CREATE TABLE Forestilling (
+    SesongTypeID INT NOT NULL,
+    SesongStykkeÅr INT NOT NULL,
     SalID INT NOT NULL,
     StartTid DATETIME NOT NULL,
-    FOREIGN KEY (SalID) REFERENCES Sal(ID)
-    PRIMARY KEY (SalID, StartTid)
+    FOREIGN KEY (SesongTypeID) REFERENCES SesongStykke(SesongTypeID)
+    FOREIGN KEY (SesongStykkeÅr) REFERENCES SesongStykke(År)
+    FOREIGN KEY (SalID) REFERENCES SesongStykke(SalID)
+    PRIMARY KEY (SesongTypeID, SesongStykkeÅr, SalID, StartTid)
 );
 
 CREATE TABLE Område (
