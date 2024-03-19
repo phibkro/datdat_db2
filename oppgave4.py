@@ -12,6 +12,18 @@ def hent_forestillinger_på_dato(date):
 
   return results
 
+def hent_billett_mengde_solgt_på_forestilling(salID, startTid):
+  # Query the database to get performances and ticket counts for the given date
+  query = """
+  SELECT f.SalID, f.StartTid
+  FROM Forestilling f
+  WHERE ? == f.SalID AND ? == f.StartTid
+  """
+  cursor.execute(query, (salID, startTid))
+  results = cursor.fetchall()
+
+  return results
+
 # Connect to the database
 conn = sqlite3.connect('db2.db')
 cursor = conn.cursor()
@@ -24,6 +36,10 @@ if __name__ == "__main__":
   date = "2024-02-03"
   print(f"Performances on {date}:")
   print(hent_forestillinger_på_dato(date))
+  forestillinger = hent_forestillinger_på_dato(date)
+  for forestilling in forestillinger:
+    print(f"Tickets sold for {forestilling}:")
+    print(hent_billett_mengde_solgt_på_forestilling(forestilling[0], forestilling[1]))
 
 # Close the database connection
 conn.close()
