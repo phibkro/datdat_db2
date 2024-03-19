@@ -1,6 +1,7 @@
 import sqlite3
 import oppgave1
-import oppgave2
+import Oppgave2_insertAndBuySeatsHovedScenen
+import Oppgave2_insertAndBuySeatsGamleScene
 import oppgave3
 
 if __name__ == "__main__":
@@ -32,9 +33,9 @@ if __name__ == "__main__":
 
   #------------Oppgave 2------------
   #Kjøpe og sette inn billetter for Hovedscenen
-  oppgave2.hovedscene_insert_seats_and_buy_tickets(cursor)
+  Oppgave2_insertAndBuySeatsHovedScenen.hovedscene_insert_seats_and_buy_tickets(cursor)
   #Kjøpe og sette inn billetter for GamleScene
-  oppgave2.gamle_scene_insert_seats_and_buy_tickets(cursor)
+  Oppgave2_insertAndBuySeatsGamleScene.gamle_scene_insert_seats_and_buy_tickets(cursor)
 
   # #------------Oppgave 3------------
   print("--------------------Oppgave 3--------------------\n")
