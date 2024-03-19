@@ -15,12 +15,14 @@ def hent_forestillinger_på_dato(date):
 def hent_billett_mengde_solgt_på_forestilling(salID, startTid):
   # Query the database to get performances and ticket counts for the given date
   query = """
-  SELECT f.SalID, f.StartTid
+  SELECT COUNT(bt.ID)
   FROM Forestilling f
-  WHERE ? == f.SalID AND ? == f.StartTid
+  INNER JOIN BillettType bt ON f.StartTid == bt.ForestillingStartTid
+  INNER JOIN Billett b ON b.BillettTypeID == bt.ID
+  WHERE f.SalID == ? AND DATE(?) == DATE(f.StartTid)
   """
   cursor.execute(query, (salID, startTid))
-  results = cursor.fetchall()
+  results = cursor.fetchone()
 
   return results
 
@@ -34,7 +36,7 @@ if __name__ == "__main__":
 
   # test
   date = "2024-02-03"
-  print(f"Performances on {date}:")
+  print(f"Forestillinger på {date}:")
   print(hent_forestillinger_på_dato(date))
   forestillinger = hent_forestillinger_på_dato(date)
   for forestilling in forestillinger:
