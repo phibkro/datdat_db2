@@ -21,7 +21,7 @@ def insert_seats_and_buy_tickets(cursor):
         seats = {'Galleri': [], 'Balkong': [], 'Parkett': []}
         sold_seats = {'Galleri': [], 'Balkong': [], 'Parkett': []}  # Initialize empty lists to store sold seats for each area
         current_area = None  # To keep track of the current area being processed
-        seat_counter = {'Galleri': 1, 'Balkong': 1, 'Parkett': 1}  # Start counters considering 'Galleri' seats numbering
+        seat_counter = {'Galleri': 1, 'Balkong': 1, 'Parkett': 1}  # Starting sesat counters for each section
 
         with open(file_path, 'r') as file:
             lines = file.readlines()
@@ -53,32 +53,33 @@ def insert_seats_and_buy_tickets(cursor):
                 cursor.execute("INSERT INTO Stol (SalID, OmrådeNavn, StolNR, RadNR) VALUES (?, ?, ?, ?)",
                                 (sal_id, omrade_navn, seat, row[0]))
                 
-                # Check if the seat is sold and 
+                # Check if the seat is sold
                 if (row[0], seat) in sold_seats[omrade_navn]:
-                    #insert into Billett table if it is
+                    #Insert the seat into Billett table if it is sold
                     cursor.execute("""
                         INSERT INTO Billett (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr)
                         VALUES (?, ?, ?, ?, ?)""",
                         (2, sal_id, omrade_navn, row[0], seat))
-                    #insert into BillettKjøp table if it is
+                    #Insert into BillettKjøp table if it is sold
                     cursor.execute("""
                                 INSERT INTO Billettkjøp (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 
                                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
                                 (2, sal_id, omrade_navn, row[0], seat, 2, '2024-02-03 15:30:00'))
                                 
 
-    # Insert seats for 'Galleri'
+    
     galleri_rows = [(1, 33), (2, 18), (3, 17)]  # Rows and number of seats for 'Galleri'
 
-    # Insert seats for 'Balkong'
+
     balkong_rows = [(1, 28), (2, 27), (3, 22), (4, 17)]  # Rows and number of seats for 'Balkong'
 
-    # Insert seats for 'Parkett'
+
     parkett_rows = [
         (1, 18), (2, 16), (3, 17), (4, 18),(5, 18), 
         (6, 17), (7, 18), (8, 17), (9, 17), (10, 14)
     ]
 
+    # path to text file with the seat layout for 'Gamle Scene'
     file_path_gamle_scene = './files needed/gamle-scene.txt'
     sold_seats = parse_and_identify_sold_seats(file_path_gamle_scene)
 

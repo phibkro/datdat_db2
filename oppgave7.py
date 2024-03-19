@@ -2,6 +2,7 @@ import sqlite3
 
 def actors_in_the_same_act():
 
+    # Input from user for the name of the actor
     name = input("Skriv inn navnet på skuespilleren: ")
 
     dbPath_1 = "oppgave7.db"

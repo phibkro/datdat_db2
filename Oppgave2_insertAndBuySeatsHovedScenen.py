@@ -20,8 +20,8 @@ def insert_seats_and_buy_tickets(cursor):
     def parse_and_identify_sold_seats(file_path):
         seats = {'Galleri': [], 'Parkett': []}
         sold_seats = {'Galleri': [], 'Parkett': []}  # Initialize empty lists to store sold seats for each area
-        current_area = None  # To keep track of the current area being processed
-        seat_counter = {'Galleri': 505, 'Parkett': 1}  # Start counters considering 'Galleri' seats numbering
+        current_area = None  # To keep track of the current area
+        seat_counter = {'Galleri': 505, 'Parkett': 1}  # Starting sesat counters for each section
 
         with open(file_path, 'r') as file:
             lines = file.readlines()
@@ -52,7 +52,7 @@ def insert_seats_and_buy_tickets(cursor):
             if omrade_navn == 'Parkett':
                 rad_nr = (seat_counter - 1) // 28 + 1
             else:  # For 'Galleri', adjust row calculation since different from 'Parkett'
-                rad_nr = (seat_counter - 505) // 5 + 1  #  5 seats per row for 'Galleri
+                rad_nr = (seat_counter - 505) // 5 + 1  #  5 seats per row for 'Galleri'
 
             # Skip the seat numbers that are not present
             if seat_counter not in skipped_seats:
@@ -66,6 +66,7 @@ def insert_seats_and_buy_tickets(cursor):
                     # Insert into Billett table
                     cursor.execute("INSERT INTO Billett (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr) VALUES (?, ?, ?, ?, ?)",
                                 (1, sal_id, omrade_navn, rad_nr, seat_counter)) 
+                    # Insert into Billettkjøp table
                     cursor.execute("""
                                 INSERT INTO Billettkjøp (BillettTypeID, SalID, OmrådeNavn, RadNr, StolNr, KundeID, KjøpsTid) 
                                 VALUES (?, ?, ?, ?, ?, ?, ?)""",
@@ -73,10 +74,10 @@ def insert_seats_and_buy_tickets(cursor):
 
             seat_counter += 1
 
-    # Skipped seats for 'Parkett' (specific rows might have specific skipped seats)
+    # Skipped seats for 'Parkett'
     parkett_skipped_seats = [467, 468, 469, 470, 495, 496, 497, 498]
 
-    #Solgte billetter
+    # Path to the file containing the seat layout
     file_path_Hovedscenen = './files needed/hovedscenen.txt'
     sold_seats = parse_and_identify_sold_seats(file_path_Hovedscenen)
 
