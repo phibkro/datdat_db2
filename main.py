@@ -18,7 +18,6 @@ if __name__ == "__main__":
   cursor = connection.cursor()
 
   # Drop all tables
-
   # Query for all table names
   cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
   tables = cursor.fetchall()

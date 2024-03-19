@@ -1,6 +1,8 @@
 import sqlite3
 
-def actors_in_the_same_act(name):
+def actors_in_the_same_act():
+
+    name = input("Skriv inn navnet på skuespilleren: ")
 
     dbPath_1 = "oppgave7.db"
 
@@ -71,7 +73,7 @@ def actors_in_the_same_act(name):
     
     connection_1.commit()
     connection_1.close()
-    
+
     distinct_pairs = set()
     for sublist in results:
         for pair in sublist:
@@ -80,8 +82,10 @@ def actors_in_the_same_act(name):
             else:
                 distinct_pairs.add(pair)
 
-    print("Skuespillere som har vært med i samme akt som", name, "er: \n")
+    print("\nSkuespillere som har vært med i samme akt som", name, "er: \n")
+    if len(distinct_pairs) == 0:
+        print("Ingen")
     for name_pair in distinct_pairs:
         print(f"{name_pair}\n")
 
-actors_in_the_same_act("Arturo Scotti")
+actors_in_the_same_act()
