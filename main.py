@@ -43,6 +43,7 @@ if __name__ == "__main__":
 
   # Oppgave 4
 
+  print("--------------------Oppgave 4--------------------\n")
   oppgave4.main(cursor)
 
   # finally

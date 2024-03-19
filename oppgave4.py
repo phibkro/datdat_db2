@@ -3,8 +3,14 @@ import sqlite3
 def hent_forestillinger_på_dato(date, cursor):
   # Query the database to get performances on the given date
   query = """
-  SELECT SalID, StartTid
+  SELECT Sal.Navn, Forestilling.StartTid, Stykke.Navn, Sal.ID
   FROM Forestilling
+  INNER JOIN SesongStykke 
+	ON Forestilling.SesongTypeID == SesongStykke.SesongTypeID 
+		AND Forestilling.SesongStykkeÅr == SesongStykke.År
+		AND Forestilling.SalID == SesongStykke.SalID
+	INNER JOIN Stykke ON SesongStykke.StykkeID == Stykke.ID
+	INNER JOIN Sal ON Forestilling.SalID == Sal.ID
   WHERE DATE(?) == DATE(StartTid)
   """
   cursor.execute(query, (date,))
@@ -24,19 +30,20 @@ def hent_billett_mengde_solgt_på_forestilling(salID, startTid, cursor):
   cursor.execute(query, (salID, startTid))
   results = cursor.fetchone()
 
-  return results
+  return results[0]
 
 def main(cursor):
   # Get the date from the user
-  date = input("Enter the date (YYYY-MM-DD): ")
+  date = input("Skriv inn dato (YYYY-MM-DD): ")
   # date = "2024-02-03"
 
-  print(f"Forestillinger på {date}:")
+  # print(f"Forestillinger på {date}:")
   forestillinger = hent_forestillinger_på_dato(date, cursor)
-  print(forestillinger)
+  # print(forestillinger)
   for forestilling in forestillinger:
-    print(f"Tickets sold for {forestilling}:")
-    print(hent_billett_mengde_solgt_på_forestilling(forestilling[0], forestilling[1], cursor))
+    salNavn, startTid, stykkeNavn, salID = forestilling
+    print(f"Billetter solgt for {stykkeNavn} på {startTid} i {salNavn}:")
+    print(hent_billett_mengde_solgt_på_forestilling(salID, startTid, cursor))
 
 if __name__ == "__main__":
   # Connect to the database
