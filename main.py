@@ -3,6 +3,7 @@ import oppgave1
 import Oppgave2_insertAndBuySeatsHovedScenen
 import Oppgave2_insertAndBuySeatsGamleScene
 import oppgave3
+import oppgave4
 
 if __name__ == "__main__":
   dbPath = "db2.db"
@@ -40,6 +41,11 @@ if __name__ == "__main__":
   print("--------------------Oppgave 3--------------------\n")
   oppgave3.buy_nine_seats(cursor)
 
+  # Oppgave 4
+
+  oppgave4.main(cursor)
+
+  # finally
   connection.commit()
 
   connection.close()
