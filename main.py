@@ -46,6 +46,24 @@ if __name__ == "__main__":
   print("--------------------Oppgave 4--------------------\n")
   oppgave4.main(cursor)
 
+
+  print("--------------------Oppgave 5--------------------\n")
+  try:
+    oppgave5 = open("Oppgave5.sql", "r")
+    fem = oppgave5.read()
+    cursor.execute(fem)
+    print(cursor.fetchall())
+  finally:
+    oppgave5.close()
+
+  print("--------------------Oppgave 6--------------------\n")
+  try:
+    oppgave6 = open("Oppgave6.sql", "r")
+    fem = oppgave6.read()
+    cursor.execute(fem)
+    print(cursor.fetchall())
+  finally:
+    oppgave5.close()
   # finally
   connection.commit()
 
