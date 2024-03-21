@@ -53,7 +53,13 @@ def buy_nine_seats(cursor):
         random_row = random.choice(available_section_and_rows[random_section])
         counter = 0
         print(f"Randomly selected section: {random_section}, row: {random_row[0]}\n")
-        print(f"Buying 9 adult seats costs 350x9 = 3150 NOK\n")
+
+        cursor.execute("""SELECT PRIS
+                                    FROM BillettType
+                                    WHERE ID = 2
+                                """)
+        price = int(cursor.fetchone()[0])
+        print(f"Buying 9 adult seats costs {price}x9 = {price*9} NOK\n")
         print(f"Updated seating arrangement after buying 9 adult seats in section {random_section} and row: {random_row[0]}\n")
 
         for seat_index, seat in enumerate(random_row[1], start=1):
