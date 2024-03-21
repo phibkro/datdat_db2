@@ -1,7 +1,12 @@
 # DatDat DB2 - Gruppe 122
-Oppgave 1, 2, 3, 4, 5, 6 og 7 blir kjørt automatisk via main.py
+
+## Bruk av KI 
+
+KI har blant annet blitt brukt til å feilsøke kode og generere forslag til kommentarer i koden. I koden vi har utviklet, har vi ikke brukt kunstig intelligens (KI) til å generere koden helt på egen hånd. I stedet har vi brukt KI som et verktøy for å finne mulige løsninger eller få forslag til hvordan visse problemer kan håndteres, på samme måte som man ville ha søkt på Google eller i StackOverflow.  
 
 ## Oppskrift
+
+Oppgave 1, 2, 3, 4, 5, 6 og 7 blir kjørt automatisk via main.py
 
 Utfør følgende steg beskrevet under i terminalen inni mappen «datdat_db2»
 #### Kjør `python3 main.py` i terminalen
