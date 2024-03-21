@@ -52,7 +52,9 @@ if __name__ == "__main__":
     oppgave5 = open("Oppgave5.sql", "r")
     fem = oppgave5.read()
     cursor.execute(fem)
-    print(cursor.fetchall())
+    for row in cursor.fetchall():
+      print(row)
+    print("\n")
   finally:
     oppgave5.close()
 
@@ -61,7 +63,9 @@ if __name__ == "__main__":
     oppgave6 = open("Oppgave6.sql", "r")
     fem = oppgave6.read()
     cursor.execute(fem)
-    print(cursor.fetchall())
+    for row in cursor.fetchall():
+      print(row)
+
   finally:
     oppgave5.close()
   # finally
