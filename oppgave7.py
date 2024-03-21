@@ -95,4 +95,4 @@ def actors_in_the_same_act():
     for name_pair in distinct_pairs:
         print(f"{name_pair}\n")
 
-actors_in_the_same_act()
+

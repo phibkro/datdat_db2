@@ -4,7 +4,7 @@ import Oppgave2_insertAndBuySeatsHovedScenen
 import Oppgave2_insertAndBuySeatsGamleScene
 import oppgave3
 import oppgave4
-
+import oppgave7
 if __name__ == "__main__":
   dbPath = "db2.db"
 
@@ -67,7 +67,13 @@ if __name__ == "__main__":
       print(row)
 
   finally:
-    oppgave5.close()
+    oppgave6.close()
+  print("\n")
+
+  print("--------------------Oppgave 7--------------------\n")
+  oppgave7.actors_in_the_same_act()
+  
+    
   # finally
   connection.commit()
 
