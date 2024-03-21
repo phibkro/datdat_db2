@@ -8,7 +8,7 @@ def buy_nine_seats(cursor):
         seats_reversed = {'Galleri': [], 'Balkong': [], 'Parkett': []}
         current_area = None  # To keep track of the current area being processed
         
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding="utf-8") as file:
             lines = file.readlines()
             for line in lines:
                 line = line.strip()
@@ -83,7 +83,7 @@ def buy_nine_seats(cursor):
                 current_area = None  # To keep track of the current area being processed
                 to_print = {'Dato': [], 'Galleri': [], 'Balkong': [], 'Parkett': []}
 
-                with open(file_path, 'r') as file:
+                with open(file_path, 'r', encoding="utf-8") as file:
                     lines = file.readlines()
                     to_print['Dato'].append(lines[0].strip())
 

@@ -3,7 +3,7 @@ import sqlite3
 
 def executeSQLFromFile(filename, cursor):
   try:
-    f = open(filename, "r")
+    f = open(filename, "r", encoding="utf-8")
     sqlFile = f.read()
     sqlCommands = sqlFile.split(";")
 

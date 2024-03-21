@@ -23,7 +23,7 @@ def insert_seats_and_buy_tickets(cursor):
         current_area = None  # To keep track of the current area
         seat_counter = {'Galleri': 505, 'Parkett': 1}  # Starting sesat counters for each section
 
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding="utf-8") as file:
             lines = file.readlines()
             for line in lines:
                 line = line.strip()
